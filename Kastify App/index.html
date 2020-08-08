@@ -1,0 +1,261 @@
+<html lang="">
+
+<head>
+	<meta charset="utf-8">
+	<title>Kastify Platform - Connecting Freelancers with Clients</title>
+	<meta name="author" content="Your Name">
+	<meta name="description" content="Example description">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="images/logo.png"/>
+	<link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet"> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://reactor-js.com/reactor/reactorjs_2.4.2.js"></script> 
+    <script src="index.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.1.0/main.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    
+</head>
+     
+<body> 
+    
+    <div class="appcont">
+        
+        <div class="sidebar"> 
+            
+            <h3 class="logo"><img src="images/logo.png"/><span>Kastify</span></h3>
+            
+            <div class="navinner">
+                <h4 re-router="dashboard" class="activelink"><hr><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></h4>
+                <h4 re-router="projects"><hr><i class="fas fa-project-diagram"></i><span>Projects</span></h4>
+                <h4 re-router="clients"><hr><i class="fas fa-users"></i><span>Clients</span></h4>
+                <h4 re-router="calendar"><hr><i class="fas fa-calendar-alt"></i><span>Calendar</span></h4>
+                <h4 re-router="settings"><hr><i class="fas fa-cog"></i><span>Settings</span></h4>
+            </div>
+            
+            <div class="sideinner">
+                <div class="favinner">
+                    <h5>Favorites<i class="fas fa-angle-up"></i></h5>
+                     <div class="favprojcont">
+                        <i>Projects</i>
+                        <div class="favprojs"></div>
+                          
+                        <i>Clients</i> 
+                        <div class="favclies"></div> 
+                     </div>
+                </div>
+                 
+                <div class="recentinner">
+                     <h5>Recent Projects<i class="fas fa-angle-up"></i></h5>
+                    <div class="recentprojcont">
+                        
+                    </div>
+                </div> 
+                <div class="inviteinner">
+                    <h5>Invite</h5>
+                    <img src="images/invite.png"/>
+                    <button class="invitebtn">Invite Clients</button>
+                    <small>Invite clients to a project</small>
+                </div>
+                 
+            </div> 
+               
+        </div>     
+        
+        <div class="home">
+           
+            <nav>
+                <div class="left">
+                    <i class="fas fa-stream regrid"></i>
+                    <div class="newcont">
+                        <h6>New Project<i class="fas fa-angle-down"></i></h6>
+                    </div>
+                    
+                    <div class="noborder"><input class="mainsearch" type="text" placeholder="Search..."><i class="fas fa-search"></i></div>
+                </div>
+                <div class="right">
+                    <div class="prof"><h6>Jason Laymer<i class="fas fa-angle-down"></i></h6><img src="images/pic.jpg"/></div>
+                    <div class="themeswitchdiv"><i class="fas fa-palette"></i><label class="form-switch"><input class="themeswitch" type="checkbox"><i></i></label></div>
+                    <div class="navicongroup">
+                    <i class="fas fa-bell navicon"></i>
+                    <i class="fas fa-inbox navicon"></i> 
+                    <i class="fas fa-power-off navicon"></i>
+                    <i class="fas fa-expand-arrows-alt fullscreen navicon"></i>    
+                    <i class="fas fa-eraser navicon clearmem"></i>
+                    </div>    
+                </div>
+                <i class="fas fa-th mobbtn navicon"></i>
+ 
+                <div class="clear"></div>
+            </nav>
+            
+            <div class="projects app" re-route="projects">
+                <div class="projectsbg"></div>
+                
+                <h2 class="apptitle">Projects</h2>
+                <div class="spacer"></div> 
+                
+                <div class="projcont"> 
+                    
+                </div>   
+                
+            </div>      
+             
+            <div class="dashboard app" re-route="dashboard">
+                <div class="dashgrid">
+                    <div class="left">
+                        <h3>Dasboard</h3>
+                        <div class="dashintro">
+                            <h2>Good afternoon, Uriel.</h2>
+                            <p>Here are the latest numbers and tasks for you today.</p>
+                            <div class="introicons">
+                            <span><i class="fas fa-tasks"></i><big>0</big> New tasks</span>
+                            <span><i class="fas fa-bell"></i><big>0</big> New notifications</span>
+                            <span><i class="fas fa-inbox"></i><big>0</big> New messages</span>    
+                            <span><i class="fas fa-sync-alt"></i><big>0</big> Updates</span>
+                            </div>      
+                        </div>
+                        
+                        <div class="dashchart dashbox dashbar">
+                            <h3>This Week</h3>
+                            <canvas id="bar-chart"></canvas> 
+                        </div> 
+                        
+                        <div class="dashchart dashbox dashline">
+                            <h3>Daily Tasks</h3>
+                            <canvas id="line-chart"></canvas> 
+                        </div>
+                         
+                        <div class="dashchart dashbox dashpie">
+                            <h3>This Month</h3>
+                            <canvas id="pie-chart"></canvas>
+                        </div>
+                        <div class="dashbox newchart">
+                            <h4>Add Chart</h4>
+                            <i class="fas fa-plus"></i>
+                        </div>
+                        <div class="dashbox" style="opacity: 0"></div>
+                    </div>     
+                    <div class="right">
+                        <h3>Quick Glance</h3>
+                        <div class="dashbox dashsmall">
+                                <i class="fas fa-file-invoice"></i>
+                            <h4><span class="totalprojnum">0</span> Projects</h4>
+                        </div>
+                        <div class="dashbox dashsmall">
+                            <i class="fas fa-user"></i> 
+                            <h4><span class="totalclientsnum">0</span> Clients</h4>
+                        </div>
+                        <div class="dashbox dashsmall">
+                            <i class="fas fa-tasks"></i> 
+                            <h4><span class="totaltasksnum">0</span> Total Tasks</h4>
+                        </div>
+                        <div class="dashbox dashsmall">
+                            <i class="fas fa-clipboard-check"></i>
+                            <h4><span class="totalactivetasks">0</span> Completed Tasks</h4>
+                        </div>
+                        
+                        <div class="dashbox dashclients">
+                            <h3>Clients</h3>
+                            <div>
+                                <img src="images/p1.jpg"/>
+                                <h6>Ralph</h6>
+                                <small>Showcaser`</small>
+                            </div>
+                            <div>
+                                <img src="images/p2.jpg"/>
+                                <h6>Jake</h6>
+                                <small>Kastify</small>
+                            </div>
+                            <div>
+                                <img src="images/p3.jpg"/>
+                                <h6>Jessica</h6>
+                                <small>Octacore</small>
+                            </div>
+                            <div>
+                                <img src="images/p4.jpg"/>
+                                <h6>Kirby</h6>
+                                <small>Excelsior</small>
+                            </div>
+                            <div>
+                                <img src="images/p5.jpg"/>
+                                <h6>Emily</h6>
+                                <small>Zerdoun</small>
+                            </div>
+                            <div> 
+                                <img src="images/p6.jpg"/>
+                                <h6>Stephanie</h6>
+                                <small>Voicex</small>
+                            </div>
+                        </div>
+                         
+                        <div class="dashbox dashtable">
+                            <h3>Recent Tasks</h3>
+                            <table> 
+                                <tbody>
+                                
+                                </tbody>     
+                            </table> 
+                        </div>  
+                        
+                    </div>  
+                </div>       
+            </div>  
+
+            <div class="clients app" re-route="clients">
+                <h2 class="apptitle">Clients</h2>
+                <i class="fas fa-th-large resizeboxes"></i>
+                <button class="newclientbtn invitebtn">New Client</button>
+                 
+                <div class="clientboxcont"></div>
+                
+            </div>
+            
+            <div class="calendar app" re-route="calendar">
+                <h2 class="apptitle">Calendar</h2>
+                <div class="clear"></div>
+                
+                 
+                <div id="thecalendar"></div>
+            </div>
+            
+            <div class="settings app" re-route="settings">
+                <h2 class="apptitle">Settings</h2>
+                <div class="clear"></div>
+                <div class="spacer"></div>
+                
+                
+            </div> 
+            
+             
+            <div class="oneproject app"> 
+                  
+                      
+                    
+            </div>
+            
+            <div class="oneclient app">
+                
+                
+            </div>
+              
+        </div>
+         
+        
+        
+     
+        
+         
+        
+     
+        
+    </div>
+    
+     
+    <!-- scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.1.0/main.js"></script>
+    
+</body>    
+</html>

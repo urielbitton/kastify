@@ -1,0 +1,1651 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    font-family: Lato, sans-serif;
+}  
+body {
+    background: var(--bg);
+}
+:root {
+    --color: #00b3ff;
+    --bg: #1c2a33;
+    --grad: linear-gradient(127deg, rgba(203,23,219,1) 0%, rgba(254,149,164,1) 100%);
+    --shadow: 0 1px 3px rgba(0,0,0,0.1);
+    --btnshadow: 0px 15px 29px -10px rgba(0,0,0,0.3);
+    --btnhover: 0px 15px 35px -5px rgba(0,0,0,0.5);
+    --red: #ff0051;
+    --green: #b4f000;
+    --orange: #ffb10a;
+    --theme1: rgba(166, 0, 255,0.8);
+    --theme2: rgba(255, 208, 0,0.8);
+    --theme3: rgba(255, 81, 0,0.8);    
+}   
+
+.grid {
+    position: relative;
+    margin: auto;
+    width: 1300px;
+}
+.left {
+    float: left;
+}
+.right {
+    float: right;
+}
+.clear {
+    clear: both;
+}
+h1,h2,h3,h4,h5,h6,i,p,li,button,a,span,small,img,section {
+    position: relative;
+    margin: 0;
+}
+img {
+    object-fit: cover;
+}
+button {
+    outline: none;
+    position: relative;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s;
+}
+a {
+    text-decoration: none;
+}
+input, textarea {
+    outline: none;
+}
+hr {
+    border: none;
+}
+* {
+    box-sizing: border-box;
+}
+::selection {
+    background: var(--color);
+    color: white;
+}
+::-webkit-scrollbar {
+    display: none;
+} 
+::-webkit-scrollbar-track {
+    background: #ddd;
+}
+::-webkit-scrollbar-thumb {
+    background: var(--color);
+    border-radius: 40px;
+} 
+.close {
+    position: absolute;
+    padding: 5px;
+    font-style: normal;
+    font-weight: 400;
+    transform: scale(1.2,1.2);
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    color: #333;
+    transition: all 0.3s;
+}
+.close::before {
+    position: absolute;
+    top: 0px;
+    left: 10px;
+    transform: rotate(-42deg);
+    content: '|';
+}
+.close::after {
+    position: absolute;
+    top: 0px;
+    left: 12px;
+    content: '|';
+    transform: rotate(42deg);
+}
+.spacer {
+    height: 50px;
+}
+.spacerl {
+    height: 100px;
+}
+
+
+.appcont {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 220px auto;
+    overflow: hidden;
+    transition: all 0.3s;
+}
+.sidebar {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    z-index: 900;
+    overflow-y: scroll;
+    padding-bottom: 30px;
+}
+.home {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow-y: scroll;
+    background: #f5f5f5;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    z-index: 5;
+}
+nav {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    padding: 10px 20px;
+    background: #fff;
+    z-index: 900;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+nav .newcont {
+    position: relative;
+    top: 3px;
+    border-radius: 30px;
+    border: 1px solid #eee;
+    float: left;
+    padding: 5px 10px;
+    margin: auto 10px;
+    cursor: pointer;
+}
+nav .newcont:hover {
+    background: #f1f1f1;
+}
+nav .newcont h6 {
+    font-size: 14px;
+    color: #777;
+}
+nav .newcont h6 i {
+    margin-left: 10px;
+} 
+.newprojcont {
+    position: absolute;
+    top: 60px;
+    min-width: 500px;
+    background: #fff;
+    box-shadow: var(--shadow);
+    border-radius: 10px;
+    z-index: 100;
+    padding: 30px;
+    display: none;
+    transition: all 0.2s;
+} 
+.newprojcont h4 {
+    font-size: 18px;
+    color: #555;
+}
+.newprojcont input {
+    padding: 15px;
+    margin-left: 0;
+    margin-top: 20px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+}
+.newprojcont button {
+    display: block;
+    margin-top: 30px;
+    padding: 15px 25px;
+    background: var(--bg);
+    color: #eee;
+}
+.newprojcont button:hover {
+    filter: brightness(115%);
+}
+
+nav .left .noborder {
+    position: relative;
+    float: left;
+    margin: auto 10px;
+    cursor: pointer;
+}
+nav .left i {
+    color: #777;
+}  
+nav .noborder i {
+    color: #777;
+}
+nav .left .noborder:hover {
+    background: none;
+}
+nav .mainsearch {
+    border-radius: 30px;
+    background: #f6f6f6;
+    border: none;
+    padding: 10px 15px;
+    padding-right: 40px;
+    margin-left: 20px;
+    margin-top: 1px;
+    width: 250px;
+    font-size: 12px;
+    transition: all 0.3s;
+}
+nav .mainsearch:focus {
+    width: 330px;
+}
+nav .left .noborder input + i {
+    transform: translateX(-30px);
+    font-size: 13px;
+    color: #aaa;
+}
+.regrid {
+    float: left;
+    margin: 10px;
+    cursor: pointer;
+    font-size: 18px;
+}
+nav .left .regrid {
+    margin-right: 20px;
+}
+nav .right img {
+    border-radius: 100%;
+    width: 35px;
+    height: 35px;
+    margin: auto 20px;
+    top: 2px;
+}
+.themeswitchdiv {
+    position: relative;
+    float: right;
+    top: 5px;
+    border-radius: 20px;
+    border: 1px solid #eee;
+    padding: 1px 5px;
+}
+.themeswitchdiv .fa-palette {
+    top: -3px;
+    margin-right: 5px;
+    color: #777;
+}
+nav .form-switch {
+    transform: scale(0.7);
+}
+nav .form-switch input:checked+i {
+    background-color: var(--color);
+}
+nav .prof {
+    cursor: pointer;
+    float: right;
+    margin-left: 20px;
+}
+nav .prof h6 {
+    font-size: 14px;
+    color: #777;
+    float: left;
+    top: 5px;
+    transition: all 0.1s;
+    border-radius: 30px;
+    padding: 5px 10px;
+    border: 1px solid #eee;
+} 
+nav .prof h6:hover {
+    background: #f1f1f1;
+}
+nav .prof h6 i {
+    margin-left: 12px;
+    top: 1px;
+}
+.navicongroup {
+    position: relative;
+    float: left;
+    top: 5px;
+    margin-right: 10px;
+    padding: 5px;
+    border-radius: 20px;
+    border: 1px solid #eee;
+}
+.navicon {
+    float: right;
+    font-size: 19px;
+    margin: auto 15px;
+    color: #777;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.navicon:hover {
+    color: var(--color);
+}
+nav .mobbtn {
+    display: none;
+    top: 10px;
+}
+
+ 
+.logo {
+    padding: 20px 30px;
+    color: #fff;
+    font-weight: 400;
+    font-size: 24px;
+    user-select: none;
+}
+.logo img {
+    width: 45px;
+    top: 12px;
+    margin-right: 10px;
+}
+.navinner {
+    position: relative;
+    margin-top: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #2d4352;
+}
+.navinner h4 {
+    padding: 12px 20px;
+    color: #f1f1f1;
+    font-weight: 400;
+    font-size: 14px;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+.navinner h4 hr {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 0;
+    width: 2px;
+    margin: 0;
+    opacity: 0;
+    background: var(--color);
+    transition: all 0.3s;
+}
+.navinner h4 i {
+    margin-right: 20px;
+}
+.navinner h4:hover hr {
+    opacity: 1;
+}
+.navinner h4:hover {
+    color: var(--color)
+}
+.sideinner {
+    position: relative;
+    width: 100%;
+    overflow-y: scroll;
+}
+.sideinner > div {
+    border-bottom: 1px solid #2d4352; 
+}
+.sideinner > div > div {
+    display: none;
+}
+.sideinner h5 {
+    padding: 20px;
+    color: #eee;
+    font-weight: 500;
+    transition: all 0.3s;
+    cursor: pointer;
+    font-size: 13px;
+}
+.sideinner h5:hover {
+    color: #fff;
+}
+.sideinner h5 i {
+    float: right;
+    top: 2px;
+    font-size: 15px;
+}
+.sideinner small {
+    padding: 5px 20px;
+    color: #aaa;
+    display: block;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 11px;
+}
+.sideinner small:hover {
+    color: var(--color);
+} 
+.sideinner small:last-child {
+    margin-bottom: 3px;
+}
+.sideinner small i {
+    margin-right: 10px;
+}
+.sideinner .inviteinner {
+    text-align: center;
+    border: none;
+}
+.inviteinner h5 {
+    text-align: left;
+}
+.inviteinner img {
+    width: 200px;
+    margin: auto;
+}
+.inviteinner h5 {
+    cursor: default;
+}
+.inviteinner small {
+    margin-top: 10px;
+}
+.inviteinner small:hover {
+    background: none;
+    color: #aaa;
+    cursor: auto;
+}
+.sideinner button {
+    padding: 7px 15px;
+    background: none;
+    border: 1px solid #eee;
+    color: #eee;
+    margin: auto;
+    width: 150px;
+}
+.sideinner button:hover {
+    background: var(--color);
+    border-color: var(--color);
+    color: #fff;
+}
+
+.app {
+    position: relative;
+    padding: 30px;
+    display: none;
+}
+.dashboard {
+    display: block;
+}
+.projectsbg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url(images/homebg2.png);
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    opacity: 0.07;
+}
+.projects {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+}
+.apptitle {
+    color: #555;
+    float: left;
+    margin-bottom: 30px;
+}
+.projcont, .clientboxcont {
+    position: relative;
+    width: 100%;
+    height: auto;
+    clear: both;
+}
+.projbox {
+    position: relative;
+    margin: 10px;
+    display: inline-block;
+    width: 200px;
+    background: #fff;
+    padding: 30px;
+    box-shadow: var(--shadow);
+    text-align: center;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+.projbox:hover {
+    background: #f1f1f1;
+}
+.projbox:hover * {
+    color: #777;
+}
+.projbox h4 {
+    color: #aaa;
+    width: 90%;
+    margin: auto;
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: 400;
+    transition: all  0.2s;
+}
+.projbox h4 br {
+    display: none;
+}
+.projbox h1 {
+    margin: 20px auto;
+    color: #333;
+    transition: all  0.2s;
+}
+.projbox small {
+    color: #bbb;
+    display: block;
+    transition: all  0.2s;
+}
+.newdot {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    background: var(--color);
+    top: 15px;
+    left: 15px;
+}
+.projbox .fa-heart {
+    position: absolute;
+    top: 40px;
+    left: 13px;
+    font-size: 14px;
+    color: var(--red);
+}
+
+.oneproject .projtitles h1, .oneclient .projtitles h1 {
+    font-size: 80px;
+    color: #fff;
+    font-weight: 400;
+    float: left;
+    width: 120px;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--bg);
+    border-radius: 10px;
+    user-select: none;
+    margin-bottom: 10px;
+}
+.oneproject .projtitles small, .oneclient .projtitles small {
+    font-weight: 500;
+    color: #aaa;
+    font-size: 14px;
+}
+.oneproject .projtitles h6, .oneclient .projtitles h6 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 10px;
+    float: left;
+    margin-bottom: 5px;
+}
+.oneproject .projtitles small.clientname {
+    margin-bottom: 20px;
+    display: block;
+    cursor: pointer;
+    float: left;
+}
+.projtitles .fa-heart {
+    float: left;
+    color: #ccc;
+    margin-left: 20px;
+    margin-top: 13px;
+    top: 1px;
+    cursor: pointer;
+}
+.addtaskbtn {
+    padding: 15px 30px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    background: var(--color);
+    color: #fff;
+    float: left;
+    box-shadow: var(--shadow);
+    transform: scale(1);
+}
+.liked {
+    animation: liked 0.3s linear;
+}
+@keyframes liked {
+    0%{transform: scale(1)}
+    50%{transform: scale(1.1)}
+    100%{transform: scale(1)}
+}
+.addtaskbtn:hover {
+    filter: brightness(110%)
+}
+.addtaskbtn i {
+    margin-right: 10px;
+}
+.oneproject table {
+    margin-top: 20px;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: var(--shadow);
+    width: 100%;
+    border-collapse: collapse;
+    overflow: hidden;
+    resize: horizontal;
+}
+.oneproject table tr {
+    box-shadow: var(--shadow);
+} 
+.oneproject table td {
+    font-size: 15px;
+    color: #555;
+    padding: 20px 15px;
+    outline: none;
+}
+.oneproject table td [type="checkbox"] {
+    float: right;
+    opacity: 0;
+    width: 15px;
+    height: 15px;
+    transition: all 0.1s;
+}
+.oneproject table tr:hover [type="checkbox"] {
+    opacity: 1;
+}
+.oneproject table [type="checkbox"]:checked {
+    opacity: 1;
+}
+.oneproject table td:first-child {
+    cursor: pointer;
+    max-width: 80px;
+}
+.oneproject .tdwords {
+    max-width: 200px;
+}
+.oneproject .tdtitle {
+    max-width: 140px;
+}
+.oneproject table td br {
+    display: none;
+}
+.oneproject table .singleupdate br {
+    display: block;
+}
+.oneproject .tdtitle {
+    font-weight: 600;
+}
+.oneproject .tdwords {
+    color: #aaa;
+    font-weight: 300;
+}
+.oneproject .tddetails {
+    position: fixed;
+    display: none;
+    top: 0;
+    margin-top: 60px;
+    right: -500px;
+    width: 500px;
+    height: 100vh;
+    background: #fff;
+    box-shadow: -5px 0px 15px -11px rgba(0,0,0,0.1);
+    transition: all 0.3s;
+    padding: 0;
+    overflow-y: scroll;
+    z-index: 500;
+}
+.oneproject .detailshead {
+    position: relative;
+    width: 100%;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    padding: 20px;
+}
+.oneproject .detailshead button {
+    padding: 5px;
+    font-size: 12px;
+    background: none;
+    border: 1px solid #aaa;
+    border-radius: 0;
+    color: #aaa;
+    float: left;
+    margin-right: 10px;
+}
+.oneproject .detailshead button:first-child:hover {
+    background: rgba(255, 0, 76,0.2);
+    color: rgba(255, 0, 76,1);
+    border-color: rgba(255, 0, 76,1);
+}
+.oneproject .detailshead button:nth-of-type(2):hover {
+    background: rgba(0, 179, 255,0.2);
+    color: rgba(0, 179, 255,1);
+    border-color: rgba(0, 179, 255,1);
+}
+.oneproject .detailshead .highpriority {
+    background: rgba(255, 0, 76,0.2);
+    color: rgba(255, 0, 76,1);
+    border-color: rgba(255, 0, 76,1);
+}
+.oneproject .detailshead .lowpriority {
+    background: rgba(0, 179, 255,0.2);
+    color: rgba(0, 179, 255,1);
+    border-color: rgba(0, 179, 255,1);
+}
+.oneproject .detailshead small {
+    top: 6px;
+    margin-left: 10px;
+    color: #ff004c;
+    cursor: pointer;
+}
+.oneproject .detailshead .close {
+    right: 30px;
+    top: 23px;
+    transform: scale(1.4)
+}
+.oneproject .detailsinner {
+    padding: 20px;
+}
+.oneproject .detailsinfo {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow-y: scroll;
+}
+.oneproject .detailsinfo small {
+    font-size: 13px;
+    color: #aaa;
+    font-weight: 400;
+}
+.oneproject .detailsinner h2 {
+    color: #333;
+}
+.oneproject .detailsinner ul {
+    list-style-type: none;
+    padding: 0;
+}
+.oneproject .detailsinner ul li {
+    font-size: 13px;
+    font-weight: 600;
+    color: #555;
+    padding: 7px 0;
+}
+.oneproject .detailsinner .statusbox {
+    padding: 5px 10px;
+    color: #fff;
+    cursor: pointer;
+}
+.oneproject .detailsinner ul li:last-child small {
+    display: block;
+    clear: both;
+    padding-top: 10px;
+}
+.oneproject .detailsinner ul li:last-child small br {
+    display: block;
+}
+.oneproject .detailsinner ul li span {
+    width: 100px;
+    float: left;
+}
+.updatescont {
+    position: relative;
+    height: 300px;
+    width: 100%;
+    margin-top: 20px;
+    overflow-y: scroll;
+    border-bottom: 1px solid #eee;
+}
+.updatestitle {
+    padding-top: 10px;
+    margin-top: 10px;
+    border-top: 1px solid #eee;
+} 
+.updatescont:hover::-webkit-scrollbar {
+    display: block;
+    width: 5px;
+}
+.updatestatus {
+    width: 100%;
+    height: 230px;
+    padding: 20px;
+    padding-top: 10px;
+    overflow-y: scroll;
+}
+.updatestatus textarea {
+    width: 100%;
+    min-height: 100px;
+    padding: 10px;
+    font-family: Lato;
+    resize: vertical;
+    border-color: #ccc;
+}
+.updatestatus button {
+    padding: 10px 20px;
+    background: var(--color);
+    margin-top: 10px;
+    color: #fff;
+}
+.singleupdate {
+    background: #f6f8f9;
+    padding: 20px 10px;
+    border-bottom: 1px solid #e9e9e9;
+}
+.singleupdate:last-child {
+    border: none;
+}
+.singleupdate img {
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    float: left;
+    margin-right: 10px;
+}
+.singleupdate small {
+    float: left;
+    margin-left: 10px;
+    top: 7px;
+    color: #aaa;
+    font-size: 12px;
+}
+.singleupdate i {
+    float: left;
+    margin-left: 10px;
+    font-style: normal;
+    top: 5px;
+    color: #ddd;
+}
+.singleupdate p {
+    clear: both;
+    font-size: 13px;
+    color: #333;
+    clear: both;
+    display: block;
+    padding: 10px 0;
+    padding-left: 5px;
+    margin: 40px auto 20px auto;
+}
+.singleupdate h6 {
+    color: #000;
+    font-size: 15px;
+    margin-top: 5px;
+    float: left;
+}
+.singleupdate span {
+    font-size: 12px;
+    margin: auto 10px;
+    color: #aaa;
+    user-select: none;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+.singleupdate span:hover {
+    color: var(--color);
+}
+
+.oneproject .detailshead button i {
+    margin-left: 10px;
+}
+
+.oneproject table .grip {
+    color: #ccc;
+    font-size: 18px;
+    top: 1px;
+}
+.activestatus {
+    display: none;
+}
+.tdstatus {
+    width: 120px;
+    text-align: center;
+}
+.tdstatus span {
+    padding: 8px 10px;
+    color: #fff;
+    display: block;
+    font-size: 13px;
+    cursor: pointer;
+}
+.status-done {
+    background: var(--green);
+}
+.status-notstarted {
+    background: var(--red);
+}
+.status-waiting {
+    background: var(--orange);
+}
+.oneproject .tdicons {
+    font-size: 20px;
+    color: #aaa;
+    cursor: pointer;
+    max-width:60px;
+}
+.oneproject .tdicons i {
+    margin: auto 10px;
+    transition: all 0.2s;
+}
+.oneproject .tddate {
+    text-align: center;
+    cursor: pointer;
+}
+.tdicons i:hover {
+    color: var(--color)
+}
+.oneproject [contenteditable=true]:empty:before{
+  content: attr(placeholder);
+  pointer-events: none;
+  display: block; 
+}
+.oneproject [contenteditable=true] {
+    outline: none;
+}
+.singleproj {
+    display: none;
+    padding-bottom: 40px;
+}
+.oneproject .activerow td:first-child {
+    border-left: 4px solid var(--color);
+}
+.oneproject .activerow td {
+    background: #ebf4f7;
+}
+.oneproject .activerow .bolt {
+    color: var(--color);
+}
+.activerow .activestatus {
+    display: inline;
+    margin-left: 10px;
+    padding: 5px 10px;
+    border: 1px solid rgba(25, 175, 255,1);
+    background: rgba(25, 175, 255,0.2);
+    color: rgba(25, 175, 255,1);
+}
+.tablehead {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    padding: 10px 0;
+}
+.tablehead h4 {
+    font-size: 24px;
+    color: #555;
+    font-weight: 400;
+    float: left;
+}
+.tablehead small {
+    margin-left: 40px;
+    float: left;
+    margin-top: 10px;
+    color: #aaa;
+}
+.tablehead > div {
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+.tableactions {
+    padding: 5px;
+    float: left;
+    margin-left: 50px;
+    border-radius: 40px;
+    border: 1px solid #ddd;
+}
+.tableactions i {
+    margin: auto 10px;
+    padding: 5px;
+    color: #555;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.tableactions i:hover {
+    color: var(--color);
+}
+.tablesort {
+    padding: 10px;
+    min-width: 120px;
+    float: left;
+    border-radius: 40px;
+    border: 1px solid #ddd;
+    font-size: 13px;
+    color: #555;
+    cursor: pointer;
+}
+.tablesort i {
+    float: right;
+    top: 3px;
+}
+.tablefilter {
+    padding: 10px;
+    min-width: 120px;
+    float: left;
+    border-radius: 40px;
+    border: 1px solid #ddd;
+    font-size: 13px;
+    color: #555;
+}
+.tablefilter input {
+    border: none;
+    background: none;
+}
+.tablesel {
+    padding: 3px;
+    min-width: 120px;
+    float: left;
+    border-radius: 40px;
+    border: 1px solid #ddd;
+    font-size: 13px;
+    color: #555;
+}
+.tablesel span {
+    top: 7px;
+    padding-left: 10px;
+}
+.tablehead .selectall {
+    position: relative;
+    top: -5px;
+    float: right;
+    margin-right: 15px;
+    margin-top: 13px;
+    width: 15px;
+    height: 15px;
+}
+.statusdrop {
+    display: none;
+    position: absolute;
+    top: -40px;
+    min-width: 120px;
+    padding: 10px;
+    transition: all 0.2s;
+    background: #fff;
+    z-index: 100;
+    left: 190px;
+    box-shadow: 0px 0px 16px -4px rgba(0,0,0,0.2);
+}
+.tddetails .statusdrop small {
+    display: block;
+    margin: 5px auto;
+    padding: 5px 10px;
+    color: #fff;
+    width: 90%;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.oneproject table .tdgrip .highstar {
+    color: #ff004c;
+    margin-left: 10px;
+}
+.oneproject table .tdgrip .lowstar {
+    color: var(--color);
+    margin-left: 10px;
+}
+.saveedits {
+    padding: 7px 10px;
+    float: right;
+    background: var(--color);
+    color: #fff;
+} 
+
+.notifdiv {
+    position: fixed;
+    display: none;
+    top: 40px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 600px;
+    padding: 20px 40px;
+    background: var(--bg);
+    z-index: 999;
+    transition: all 0.2s;
+    transform: scaleX(0.5);
+    box-shadow: 0 0 19px rgba(0,0,0,0.2);
+}
+.notifdiv p {
+    color: #fff;
+    font-weight: 400;
+    font-size: 14px;
+    float: left;
+    margin-top: 8px;
+    margin-left: 40px;
+}
+.notifdiv button {
+    float: right;
+    padding: 10px 20px;
+    color: #000;
+    background: #fff;
+}
+.notifdiv button:hover {
+    background: var(--color);
+    color: #fff;
+}
+.notifdiv .close {
+    position: absolute;
+    left: 10px;
+    color: #fff;
+    margin-top: 6px;
+}
+
+.recentprojcont small::before {
+    content: '•';  
+    position: relative;
+    top: 1px;
+    font-size: 17px;
+    margin-right: 7px;
+    color: var(--color);
+}
+.favprojcont small::before {
+    content: '•';  
+    position: relative;
+    top: 1px;
+    font-size: 17px;
+    margin-right: 7px;
+    color: var(--red);
+}
+.favprojcont i {
+    font-size: 11px;
+    color: #fff;
+    opacity: 0.3;
+    margin-left: 20px;
+    margin-bottom: 5px;
+    font-style: normal;
+    display: block;
+}
+.projoptions {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    padding: 5px;
+    color: var(--color);
+    transition: all 0.2s;
+}
+.projoptcont, .clientoptcont {
+    position: absolute;
+    right: -10px;
+    background: #fff;
+    box-shadow: 0 1px 10px rgba(0,0,0,0.1);
+    z-index: 10;
+}
+.projoptcont small, .clientoptcont small {
+    padding: 10px;
+    font-size: 12px;
+    color: #555;
+    transition: all 0.2s;
+    text-align: left;
+    display: block;
+    cursor: pointer;
+}
+.projoptcont small:hover, .clientoptcont small:hover {
+    background: #f5f5f5;
+}
+.projoptcont small i, .clientoptcont small i {
+    margin-right: 10px;
+}
+.projrenamebtn {
+    padding: 5px 10px;
+    background: var(--color);
+    color: #fff;
+    margin: auto;
+}
+.projbox [contenteditable] br {
+    display: none;
+}
+.detailshead small.activestatus {
+    color: var(--color);
+    margin-left: 0;
+}
+.detailshead .deletetask {
+    padding: 5px 10px;
+}
+.detailshead .deletetask:hover {
+    background: var(--red);
+    color: #fff;
+    transition: all 0.2s;
+}
+.datechange {
+    padding: 5px 10px;
+}
+.datechange:hover {
+    outline: 1px solid #ccc;
+}
+.datechange input {
+    border: none;
+    background: none;
+    position: relative;
+}
+#thecalendar {
+    
+}
+
+
+/*Dashboard CSS */
+.dashgrid {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 60% auto;
+    grid-template-rows: 100px  auto;
+    grid-column-gap: 30px;
+}
+.dashgrid h3 {
+    font-size: 18px;
+    margin: 10px 0;
+    margin-top: 15px;
+    grid-column: 1/3;
+    color: #555;
+}
+.dashintro {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background-image: url(images/dashimg.jpg);
+    background-position: center;
+    background-size: cover;
+    box-shadow: 0 0 4px rgba(0,0,0,0.1);
+    padding: 20px;
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+.dashintro h2 {
+    color: #b36d43;
+    font-weight: 400;
+    margin-top: 10px;
+}  
+.dashintro p {
+    color: #e39262;
+    font-size: 14px;
+    margin-top: 5px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+.introicons {
+    position: relative;
+    display: grid;
+    grid-template-columns: 200px 200px;
+    grid-column-gap: 30px;
+    grid-row-gap: 10px;
+}
+.dashintro span {
+    color: #555;
+    font-size: 14px;
+    font-weight: 600;
+    display: block;
+}
+.dashintro span i {
+    margin-right: 10px;
+}
+.dashintro span big {
+    position: relative;
+    top: 1px;
+    margin-right: 5px;
+    font-size: 18px;
+}
+.dashgrid .left {
+    display: inline-grid;
+    grid-template-columns: auto auto;
+    grid-column-gap: 30px;
+    grid-row-gap: 10px;
+}
+.dashgrid .right {
+    position: relative;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+.dashbox {
+    box-shadow: var(--shadow);
+    padding: 20px;
+    background: #fafafa;
+}
+.dashsmall {
+    margin: 10px;
+    margin-top: 10px;
+    margin-left: 0;
+}
+.dashsmall:nth-child(2) {
+    background: var(--color);
+}
+.dashsmall:nth-child(3) {
+    background: var(--theme1);
+}
+.dashsmall:nth-child(4) {
+    background: var(--theme2);
+}
+.dashsmall:nth-child(5) {
+    background: var(--theme3);
+} 
+.dashicon {
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+    margin-bottom: 5px;
+}
+.dashsmall i {
+    color: #fff;
+    font-size: 35px;
+    margin: 10px 0;
+}
+.dashsmall h4 span {
+    display: block;
+    font-size: 33px;
+    color: #fff;
+    font-weight: 900;
+}
+.dashsmall h4 {
+    font-size: 15px;
+    color: #eee;
+    font-weight: 400;
+}
+.dashclients {
+    background: #fafafa;
+    margin: 10px;
+    margin-left: 0;
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+.dashclients h3, .dashtable h3 {
+    margin-top: 0;
+}
+.dashtable h3 {
+    margin-bottom: 20px;
+}
+.dashclients > div {
+    display: inline-table;
+    text-align: center;
+    margin: 10px;
+    margin-right: 30px;
+}
+.dashclients > div img {
+    margin: auto;
+    margin-bottom: 5px;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    display: block;
+    opacity: 0.8;
+}
+.dashclients > div h6 {
+    font-size: 13px;
+}
+.dashclients > div small {
+    font-size: 11px;
+    color: #aaa;
+    display: block;
+    margin-top: 5px;
+}
+.dashbox:last-child {
+    margin-bottom: 50px;
+} 
+.dashbar {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+.dashchart canvas {
+    text-align: center;
+    margin: auto;
+}
+.dashline {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+.dashpie {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    width: 50%;
+}
+.newchart {
+    text-align: center;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    width: 50%;
+}
+.newchart i {
+    font-size: 30px;
+    color: #aaa;
+    border: 1px dashed #aaa;
+    padding: 50px;
+    cursor: pointer;
+}
+.newchart i:hover {
+    background: #f5f5f5;
+}
+.newchart h4 {
+    display: block;
+    font-size: 18px;
+    margin-bottom: 40px;
+    margin-top: 20px;
+}
+.dashchart canvas {
+    width: 100%;
+}
+.dashtable {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+.dashtable table {
+    width: 100%;
+    border-collapse: collapse;
+} 
+.dashtable table tr {
+    border-bottom: 1px solid #e8eef3;
+    padding-bottom: 20px;
+}  
+
+.dashtable table tr td {
+    padding: 10px;
+    color: #7e96a3;
+    font-size: 13px;
+}
+.dashtable .tdstatus span {
+    cursor: default;
+}
+.dashtable .fa-check-square {
+    font-size: 17px;
+    color: #ddd;
+}
+.dashtable .tdactive i {
+    color: var(--color);
+}
+
+/* iOS Style Button */
+.form-switch{position: relative;display:inline-block;cursor:pointer;-webkit-tap-highlight-color:transparent;}.form-switch i{position:relative;display:inline-block;margin-right:.5rem;width:46px;height:26px;background-color:#e6e6e6;border-radius:23px;vertical-align:text-bottom;transition:all .3s linear}.form-switch i::before{content:"";position:absolute;left:0;width:42px;height:22px;background-color:#fff;border-radius:11px;transform:translate3d(2px,2px,0) scale3d(1,1,1);transition:all .25s linear}.form-switch i::after{content:"";position:absolute;left:0;width:22px;height:22px;background-color:#fff;border-radius:11px;box-shadow:0 2px 2px rgba(0,0,0,.24);transform:translate3d(2px,2px,0);transition:all .2s ease-in-out}
+.form-switch:active i::after{width:28px;transform:translate3d(2px,2px,0)}.form-switch:active input:checked+i::after{transform:translate3d(16px,2px,0)}.form-switch input{display:none}.form-switch input:checked+i{background-color:var(--color)}.form-switch input:checked+i::before{transform:translate3d(18px,2px,0) scale3d(0,0,0)}.form-switch input:checked+i::after{transform:translate3d(22px,2px,0)}
+
+
+.invitecont {
+    position: absolute;
+    transform: translateY(460px);
+    left: 220px;
+    width: 300px;
+    padding: 30px;
+    box-shadow: var(--shadow);
+    background: #fff;
+    z-index: 900;
+    transition: all 0.3s;
+}
+.invitecont h4 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 20px;
+}
+.invitecont input {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border: 1px solid #eee;
+    padding: 10px 20px;
+    background: none;
+    width: 100%;
+}
+.invitecont small {
+    color: #aaa;
+    font-size: 12px;
+    display: block;
+}
+.invitecont select {
+    width: 100%;
+    border: 1px solid #eee;
+    padding: 8px 10px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    outline-color: var(--bg);
+}
+.invitecont button {
+    margin-top: 30px;
+    padding: 15px 20px;
+    width: 120px;
+    background: var(--bg);
+    color: #eee;
+}
+.invitecont button:hover {
+    filter: brightness(110%);
+}
+
+.resizeboxes {
+    margin-left: 50px;
+    top: 9px;
+    color: #777;
+    font-size: 18px;
+    cursor: pointer;
+}
+.resizeboxes:hover {
+    color: var(--color);
+}
+.clientbox {
+    position: relative;
+    margin: 20px;
+    margin-left: 0;
+    padding: 30px;
+    background: #fff;
+    box-shadow: var(--shadow);
+    display: inline-block;
+    min-height: 100px;
+    min-width: 280px;
+    transition: all 0.3s;
+}
+.clientbox:hover {
+    background: #f1f1f1;
+}
+.clientbox .fa-user {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #555;
+}
+.clientbox h4 {
+    font-size: 18px;
+    color: #555;
+    cursor: pointer;
+    display: table;
+}
+.clientbox h4:hover {
+    color: var(--color);
+}
+.clientbox h6 {
+    color: #aaa;
+    display: block;
+    margin-top: 10px;
+    font-size: 13px;
+    cursor: pointer;
+    display: table;
+}
+.clientbox h6:hover {
+    color: var(--color);
+}
+.clientbox .clientopt {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: var(--color);
+} 
+.newclientbtn {
+    float: right;
+    padding: 15px 25px;
+    top: -5px;
+    background: var(--bg);
+    color: #eee;
+}
+.newclientbtn:hover {
+    filter: brightness(110%);
+}
+.clientopt {
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+ 
+@media (max-width:1350px) {
+    .oneproject .tddate {
+        max-width: 50px;
+    }
+    nav .right {
+        position: absolute;
+        top: 60px;
+        width: 300px;
+        padding: 30px;
+        background: #fff;
+        right: 30px;
+        display: none;
+        transition: all 0.3s;
+        border-radius: 10px;
+        box-shadow: var(--shadow);
+    }
+    nav .right .prof h6 {
+        position: absolute;
+        top: 20px;
+    }
+    nav .right .prof h6:hover {
+        color: #777;
+    }
+    nav .right .prof h6 i {
+        display: none;
+    }
+    nav .right .prof {
+        margin: auto;
+        margin-top: 25px;
+    }
+    nav .right .prof img {
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+    nav .right div, nav .right i {
+        display: inline-table;
+        float: none;
+        margin-left: 0;
+    }
+    nav .right i {
+        float: right;
+        margin: auto 15px;
+        margin-top: 25px;
+    }
+    nav .mobbtn {
+        display: block;
+    }
+}
+@media (max-width:1275px) {
+    .oneproject table {
+        width: 1150px;
+    }
+    .singleproj::-webkit-scrollbar {
+        display: block;
+        height: 8px;
+    }
+    .singleproj {
+        overflow-x: scroll;
+    }
+    .oneproject table td [type="checkbox"] {
+        opacity: 1;
+    }
+    .dashgrid {
+        display: block;
+    }
+    .dashgrid .left, .dashgrid .right {
+        float: none;
+        width: 100%;
+    }
+    .dashpie, .newchart {
+        width: 100%;
+    }
+    .newchart {
+        height: 280px;
+    }
+}
+@media (max-width:1100px) {
+    
+    nav .mainsearch:focus {
+        width: 250px;
+    }
+    
+}
+
+
+
+ 
+
